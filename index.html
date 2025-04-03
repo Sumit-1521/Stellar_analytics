@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+  <link rel="stylesheet" href="./src/style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+
+</head>
+
+<body>
+
+  <button onclick="window.open('http://localhost:8501', '_self')">🔙 Back to Analysis</button>
+
+  <div class="relative">
+    <nav class="absolute top-0 left-0 w-full z-[3] text-white py-8 mx-auto" >
+       <h1 class="text-5xl text-center font-bold opacity-0  font-['']">Top 10 Exoplanets</h1>
+      </nav>
+    <div class="left  opacity-0 z-[10] absolute text-white top-1/2 left-0 -translate-y-1/2 px-8 flex flex-col gap-2 sm:px-4 md:px-6 lg:px-8">
+      <div class="box flex rounded-full items-center justify-center pl-4 py-2 gap-2" data-index="0">
+        <h1 class="head1">Teegarden's Star b</h1>
+        <img class="w-[35px] pr-2" src="./Planet_name/TEE-removebg-preview.png" alt="Teegarden's Star b" />
+      </div>
+      <div class="box flex text-white items-center justify-start pl-4 py-2 gap-2" data-index="1">
+        <h1 class="">TOI-700 d</h1>
+        <img class="w-[35px] pr-2" src="./Planet_name/TOI_D-removebg-preview.png" alt="TOI-700 d" />
+      </div>
+      <div class="box flex items-center justify-start pl-4 py-2 gap-2" data-index="2">
+        <h1 class="">Kepler-1649 c</h1>
+        <img class="w-[35px] pr-2" src="./Planet_name/KEPLER_1649-removebg-preview.png" alt="Kepler-1649 c" />
+      </div>
+      <div class="box flex text-white items-center justify-start pl-4 py-2 gap-2" data-index="3">
+        <h1 class="">TOI-700 e</h1>
+        <img class="w-[35px] pr-2" src="./Planet_name/TOI_E-removebg-preview.png" alt="TOI-700 e" />
+      </div>
+      <div class="box flex text-white items-center justify-start pl-4 py-2 gap-2" data-index="4">
+        <h1 class="">Proxima Cen br</h1>
+        <img class="w-[35px] pr-2" src="./Planet_name/PROXIMA-removebg-preview.png" alt="Proxima Cen br" />
+      </div>
+      <div class="box flex text-white items-center justify-start pl-4 py-2 gap-2" data-index="5">
+        <h1 class="">GJ 1002 b</h1>
+        <img class="w-[35px] pr-2" src="./Planet_name/GJ_1002-removebg-preview.png" alt="GJ 1002 b" />
+      </div>
+      <div class="box flex text-white items-center justify-start pl-4 py-2 gap-2" data-index="6">
+        <h1 class="">Ross 128 b</h1>
+        <img class="w-[35px] pr-2" src="./Planet_name/ROSS_128-removebg-preview.png" alt="Ross 128 b" />
+      </div>
+      <div class="box flex text-white items-center justify-start pl-4 py-2 gap-2" data-index="7">
+        <h1 class="">Wolf 1069 b</h1>
+        <img class="w-[35px] pr-2" src="./Planet_name/WOLF_1069-removebg-preview.png" alt="Wolf 1069 b" />
+      </div>
+      <div class="box flex text-white items-center justify-start pl-4 py-2 gap-2" data-index="7">
+        <h1 class="">GJ 1061 c</h1>
+        <img class="w-[35px] pr-2" src="./Planet_name/GJ_1061-removebg-preview.png" alt="GJ 1061 c" />
+      </div>
+      <div class="box flex text-white items-center justify-start pl-4 py-2 gap-2" data-index="7">
+        <h1 class="">K2-72 e</h1>
+        <img class="w-[35px] pr-2" src="./Planet_name/K2_72-removebg-preview.png" alt="K2-72 e" />
+      </div>
+      
+    </div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 text-white z-[3] py-8 text-center">
+      <h1 class="text-5xl head font-bold opacity-0">Mercury</h1>
+      <p class="text-md desc font-light opacity-0 mt-4">The smallest planet in our solar system.</p>
+    </div>
+    
+    
+    <div id="canvas-container">
+      <canvas id="canvas"></canvas>
+    </div>
+    
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
