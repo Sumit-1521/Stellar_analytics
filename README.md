@@ -1,150 +1,117 @@
-## Overview
+# 🌌 Stellar Analytics
+
+🚀 A web-based analytics platform for analyzing exoplanet datasets to assess habitability potential. This project consists of a **React frontend** and a **Flask backend**, where users can interact with data via a dashboard.
+
+---
+
+## 📌 Overview
 
 This project focuses on analyzing exoplanet datasets to assess their habitability potential. The analysis includes data cleaning, handling missing values, calculating astrophysical parameters, and developing indices like the Earth Similarity Index (ESI) and Habitability Index (HI). The results provide insights into the potential habitability of exoplanets based on scientifically rigorous methods.
 
 ---
 
-## Features
+## 📌 Features
 
-1. **Data Cleaning and Preprocessing**:
-   - Handles missing values using astrophysical formulas.
-   - Removes redundant or irrelevant columns.
-   - Ensures physical consistency of planetary and stellar parameters.
+### **🔹 Data Science Features**
 
-2. **Key Calculations**:
-   - **Earth Similarity Index (ESI)**: Measures similarity to Earth using parameters like radius, density, surface temperature, and escape velocity.
-   - **Habitability Index (HI)**: Combines ESI, long-term orbital stability, and atmospheric retention to rank planets.
+✅ **Data Cleaning & Preprocessing**: Handles missing values using astrophysical formulas.
+✅ **Earth Similarity Index (ESI) Calculation**: Determines how similar exoplanets are to Earth.
+✅ **Habitability Index (HI) Computation**: Ranks planets based on habitability criteria.
+✅ **Classification System**: Categorizes planets into Habitable, Marginally Habitable, and Non-Habitable.
+✅ **Visualizations**: Heatmaps, scatter plots, and ranking charts for insights.
 
-3. **Visualization**:
-   - Scatter plots and histograms for ESI and HI distributions.
-   - Heatmaps showing correlations between features.
-   - Pie charts illustrating the distribution of habitability categories.
+### **🔹 Web Dashboard Features**
 
-4. **Classification**:
-   - Categorizes planets into three groups:
-     - *Potentially Habitable*
-     - *Marginally Habitable*
-     - *Non-Habitable*
+✅ **Interactive UI**: Users can explore habitability metrics using a modern dashboard.
+✅ **Dynamic Graphs**: View real-time ESI & HI calculations with data visualizations.
+✅ **Upload Dataset**: Users can upload new exoplanet datasets for analysis.
+✅ **Two-Part Web System**:
 
-5. **Ranking**:
-   - Ranks planets based on their Habitability Index.
+- A **React.js frontend** for UI visualization.
+- A **Flask backend** for handling data processing & API requests.
 
 ---
 
-## Dataset
+## 🚀 How to Run the Project
 
-The project utilizes an exoplanet dataset (`exoplanet_dataset.csv`) containing planetary and stellar parameters. After processing, the cleaned dataset is saved as `Final_Cleaned_Exoplanet_Dataset.csv`.
+This project consists of **two parts**:
+1️⃣ **Flask Backend** (API & Machine Learning processing)
+2️⃣ **React Frontend** (Dashboard & Visualization)
 
-### Key Parameters:
-- Planetary: Mass, radius, orbital period, semi-major axis, eccentricity, escape velocity, surface gravity, flux, equilibrium temperature.
-- Stellar: Mass, radius, effective temperature, luminosity.
+### **🔹 Step 1: Clone the Repository**
 
----
+```sh
+git clone https://github.com/your-username/Stellar_Analytics.git
+cd Stellar_Analytics
+```
 
-## Methodology
+### **🔹 Step 2: Set Up the Flask Backend**
 
-### 1. **Handling Missing Values**
-Astrophysical models were used to compute missing values for critical parameters:
-- Kepler's laws for orbital properties.
-- Stefan-Boltzmann law for stellar temperatures.
-- Newtonian mechanics for gravitational properties.
+1️⃣ Navigate to the backend folder:
 
-### 2. **Earth Similarity Index (ESI)**
-Calculated using normalized planetary parameters:
-$$
-ESI = \sqrt{ESI_{Interior} \times ESI_{Surface}}
-$$
-Where:
-- $$
- ESI_{Interior} $$: Combines radius and density.
-- $$
- ESI_{Surface} $$: Combines surface temperature and escape velocity.
+```sh
+cd backend
+```
 
-### 3. **Habitability Index (HI)**
-Incorporates three factors:
-$$
-HI = 0.5 \times ESI + 0.3 \times Stability + 0.2 \times Atmospheric Retention
-$$
-- Stability: Derived from semi-major axis and eccentricity.
-- Atmospheric Retention: Based on escape velocity and surface temperature.
+2️⃣ Install Python dependencies:
 
-### 4. **Classification**
-Planets are categorized based on thresholds for HI and ESI:
-- *Potentially Habitable*: $$
- HI \geq 0.70 $$ and $$
- ESI \geq 0.85 $$
-- *Marginally Habitable*: $$
- HI \geq 0.60 $$ and $$
- ESI \geq 0.70 $$
-- *Non-Habitable*: Below these thresholds.
+```sh
+pip install -r requirements.txt
+```
+
+3️⃣ Run the Flask server:
+
+```sh
+python app.py
+```
+
+🔹 The API will start on **[http://127.0.0.1:5000/](http://127.0.0.1:5000/)**.
 
 ---
 
-## Results
+### **🔹 Step 3: Set Up the React Frontend**
 
-1. **Final Datasets**:
-   - `Final_Cleaned_Exoplanet_Dataset.csv`: Cleaned dataset with all missing values addressed.
-   - `output_with_habitability_index.csv`: Dataset with calculated indices.
-   - `planet_habitability_ranking_with_categories.csv`: Ranked planets with habitability categories.
+1️⃣ Open a new terminal and navigate to the frontend folder:
 
-2. **Insights**:
-   - Majority of planets are non-habitable with low ESI values (0.7).
-   - Key features influencing habitability include surface ESI, interior ESI, radius, density, and atmospheric retention.
+```sh
+cd ../frontend
+```
 
-3. **Visualizations**:
-   - Scatter plots highlight relationships between ESI components.
-   - Histograms show the distribution of HI across planets.
-   - Pie charts reveal the percentage of planets in each habitability category.
+2️⃣ Install Node.js dependencies:
 
----
+```sh
+npm install
+```
 
-## How to Run
+3️⃣ Start the React app:
 
-1. Clone the repository:
-   ```bash
-   git clone 
-   cd Stellar_Analytics
-   ```
+```sh
+npm start
+```
 
-2. Install dependencies:
-   ```bash
-   pip install pandas numpy matplotlib seaborn scikit-learn
-   ```
+🔹 The React app will start on **[http://localhost:3000/](http://localhost:3000/)**.
 
-3. Run the main analysis script:
-   ```bash
-   python analyze_exoplanets.py
-   ```
+### **Handling Different Localhost Ports**
 
-4. View results in the output files or generated visualizations.
+Since React (`localhost:3000`) and Flask (`localhost:5000`) run on different ports, update the **frontend API calls** to match the backend:
+
+- Open `frontend/src/config.js`
+- Set API URL: `const API_URL = "http://127.0.0.1:5000";`
+- Ensure `CORS` is enabled in Flask (`from flask_cors import CORS; CORS(app)`).
 
 ---
 
-## Key Files
 
-- `analyze_exoplanets.py`: Main script for analysis.
-- `exoplanet_dataset.csv`: Raw dataset used as input.
-- `Final_Cleaned_Exoplanet_Dataset.csv`: Cleaned dataset after preprocessing.
-- `output_with_habitability_index.csv`: Dataset with calculated indices.
-- `planet_habitability_ranking_with_categories.csv`: Final ranked dataset with classifications.
+## 📢 Contributing
+
+Pull requests are welcome! If you find a bug or have an improvement suggestion, feel free to open an issue.
 
 ---
 
-## Future Work
+## 🔗 Contact
 
-- Incorporate additional parameters like atmospheric composition or magnetic field strength.
-- Use machine learning models to predict habitability based on more complex relationships.
-- Expand analysis to include multi-star systems or rogue planets.
+📧 Email: **[sumitkumarsheoran89@gmail.com](mailto\:sumitkumarsheoran89@gmail.com)**\
+📌 GitHub: **[your-username](https://github.com/your-username)**
 
----
-
-## Credits
-
-This project was developed using publicly available astrophysical datasets and formulas from sources such as NASA's Exoplanet Archive and peer-reviewed research papers (e.g., Chen & Kipping 2017).
-
-For questions or contributions, please contact [sumitkumarsheoran89@gmail.com].
-
-Citations:
-[1] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/51036164/961f0b84-f25e-4fcc-8670-c327514ade0f/Stellar_analyticss.ipynb-Colab.pdf
-
+🚀 **Enjoy Exploring the Universe!** 🌠
 
